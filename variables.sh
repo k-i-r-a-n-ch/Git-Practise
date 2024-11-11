@@ -15,7 +15,7 @@
 
 
 
-Person1=$1
+person1=$1
 person2=$2
 
 
