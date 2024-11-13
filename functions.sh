@@ -2,6 +2,15 @@
 
 userid=$(id -u)
 
+
+CHECK_ROOT(){
+    if [ $userid -ne 0 ]
+    then
+       echo "please run this script through root priviliges"
+       exit 1     #shell script will come out of the program
+    fi
+}
+
 VALIDATE(){
      if [ $1 -ne 0 ]
      then  
@@ -12,11 +21,9 @@ VALIDATE(){
      fi
 }
 
-if [ $userid -ne 0 ]
-then
-   echo "please run this script through root priviliges"
-   exit 1     #shell script will come out of the program
-fi
+CHECK_ROOT
+
+
 
 dnf list installed git
 
