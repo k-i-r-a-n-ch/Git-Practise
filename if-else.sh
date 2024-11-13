@@ -8,3 +8,4 @@ then
 else
    echo "Given number: $number is less than 20"
 fi
+
