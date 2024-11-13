@@ -19,7 +19,7 @@ then
     if [ $? -ne 0 ]
     then
         echo "Git installation is not successful...check it"
-        exit 1
+        exit 1                                                       #shell script will come out of the program
     else
         echo "Git installation is success"
     fi
