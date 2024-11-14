@@ -33,7 +33,17 @@ VALIDATE(){
      fi
 }
 
+USAGE(){
+    echo -e "$R USAGE: $N sudo sh fie-name package1 package2 ....."
+    exit 1
+}
+
 CHECK_ROOT
+
+if [ $# eq 0 ]
+then 
+    USAGE 
+fi
 
 for package in $@
 do
