@@ -18,7 +18,7 @@ Y="\e[33m"
 CHECK_ROOT(){
     if [ $userid -ne 0 ]
     then
-       echo -e "$R please run this script through root priviliges $N" | tee -a &>>$LOG_FILE
+       echo -e "$R please run this script through root priviliges $N" | tee -a $LOG_FILE
        exit 1     #shell script will come out of the program
     fi
 }
@@ -26,10 +26,10 @@ CHECK_ROOT(){
 VALIDATE(){
      if [ $1 -ne 0 ]
      then  
-         echo -e "$2 is ...$R failed $N" | tee -a &>>$LOG_FILE
+         echo -e "$2 is ...$R failed $N" | tee -a $LOG_FILE
          exit 1
      else 
-         echo -e "$2 is ....$G success $N" | tee -a &>>$LOG_FILE
+         echo -e "$2 is ....$G success $N" | tee -a $LOG_FILE
      fi
 }
 
@@ -38,7 +38,7 @@ USAGE(){
     exit 1
 }
 
-echo "Script started executing at $(date)" | tee -a &>>$LOG_FILE
+echo "Script started executing at $(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
@@ -52,10 +52,10 @@ do
   dnf list installed $package &>>$LOG_FILE
   if [ $? -ne 0 ]
   then
-     echo -e "$package is not installed,going to install it.."  | tee -a &>>$LOG_FILE
+     echo -e "$package is not installed,going to install it.."  | tee -a $LOG_FILE
      dnf install $package -y &>>$LOG_FILE
      VALIDATE $? "INSTALLING $package"
   else
-     echo -e "$package is already $Y installed...nothing to do $N" | tee -a &>>$LOG_FILE
+     echo -e "$package is already $Y installed...nothing to do $N" | tee -a $LOG_FILE
   fi
 done
