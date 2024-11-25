@@ -28,7 +28,7 @@ VALIDATE(){
 CHECK_ROOT
 
 
-for package in $@
+for package in $@   #refers to all arguments passed to it.
 do
   dnf list installed $package
   if [ $? -ne 0 ]
