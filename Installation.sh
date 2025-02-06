@@ -21,4 +21,4 @@ then
     else 
        echo "Git Installation is Success"
 else 
-    echo "Git is Already installed"
+    echo "Git is Already installed" 
